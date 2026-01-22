@@ -4,7 +4,7 @@ const THEME_STORAGE_KEY = 'mp-theme'
 
 const getInitialTheme = () => {
     if (typeof window === 'undefined') {
-        return { theme: 'dark', hasStoredPreference: false }
+        return { theme: 'light', hasStoredPreference: false }
     }
 
     const stored = window.localStorage.getItem(THEME_STORAGE_KEY)
@@ -12,8 +12,7 @@ const getInitialTheme = () => {
         return { theme: stored, hasStoredPreference: true }
     }
 
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    return { theme: prefersDark ? 'dark' : 'light', hasStoredPreference: false }
+    return { theme: 'light', hasStoredPreference: false }
 }
 
 function useTheme () {
